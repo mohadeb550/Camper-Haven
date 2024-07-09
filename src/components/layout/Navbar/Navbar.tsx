@@ -11,11 +11,13 @@ export default function Navbar() {
 
   
   const navLinks = <>
+   <li ><NavLink to='/' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400`} >Home</NavLink></li>
+   
    <li ><NavLink to='/' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400`} >Products</NavLink></li>
 
    <li ><NavLink to='/' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400`} >Cart</NavLink></li>
 
-   <li ><NavLink to='/' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400`} >Product Management</NavLink></li>
+   <li ><NavLink to='/product-management' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400`} >Product Management</NavLink></li>
 
 
    <li ><NavLink to='/' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400`} >About Us</NavLink></li>
