@@ -3,6 +3,8 @@ import DrawerNav from "./DrawerNavbar"
 import { HiOutlineMenu } from "react-icons/hi";
 import Container from "../Container";
 import { NavLink } from "react-router-dom";
+import { LuShoppingCart } from "react-icons/lu";
+import { FiHeart } from "react-icons/fi";
 
 
 export default function Navbar() {
@@ -49,8 +51,11 @@ export default function Navbar() {
 <div className="flex items-center justify-center  gap-2 z-50">
 
 
-{/* contact button  */}  
-<button className=" px-8 text-sm lg:text-base mr-3 py-2 md:py-2 xl:py-3 font-semibold text-white rounded-full transition bg-black hover:bg-gray-800 whitespace-nowrap">Contact Us</button>
+{/* cart  */}  
+<div className="mr-3 md:mr-5 text-xl md:text-[22px] lg:text-2xl text-black flex gap-5 md:gap-6 ">
+    <FiHeart/>
+  <LuShoppingCart/>
+</div>
 
 {/* label for open daisy ui drawer that component has another file  */}
     <label htmlFor="my-drawer" className={`lg:hidden text-xl md:text-2xl`}><HiOutlineMenu/> </label>
