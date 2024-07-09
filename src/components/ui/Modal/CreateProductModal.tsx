@@ -1,19 +1,88 @@
 
+import { useForm } from "react-hook-form";
+
 
 
 export default function CreateProductModal({ open, setOpen} : { open: boolean, setOpen: object}) {
 
-  const handleSubmit = (e : FormDataEvent) => {
-    e.preventDefault()
+  const { register, handleSubmit } = useForm();
+  // const [maxImageError ,setMaxImageError ] = useState('')
+
+
+  const onSubmit = (data) => {
+    
+  // const selectedFiles = Array.from(data.images)
+
+  // max images validation 
+  // if(selectedFiles.length > 3){
+  //   setMaxImageError('You cannot select more than 3 images')
+  //   return;
+  // }else{
+  //   setMaxImageError('')
+  // }
+
+  let productData = {
+    product_name : data.productName,
+    category : data.category,
+    stock_quantity : data.stockQuantity,
+    price : data.price,
+    description : data.description,
+    rating : data.rating,
+    images : [ data.image1, data.image2, data.image3]
+  }
+  console.log(productData)
+ 
   }
 
+
   return (
-    <section className="w-screen h-screen fixed top-0 left-0 right-0 bottom-0 z-50  bg-black/30 backdrop-blur-sm flex justify-center items-center">  
+    <section className="w-screen h-screen fixed top-0 left-0 right-0 bottom-0 z-50  bg-black/30 backdrop-blur-sm flex justify-center items-center overflow-y-auto">  
        
-       <form className="w-[400px] md:w-[500px] p-7 bg-white rounded-md" onSubmit={handleSubmit}>
+       <form className="w-[400px] md:w-[600px] p-7 bg-white rounded-md" onSubmit={handleSubmit(onSubmit)}>
+
+        <div className="flex flex-col justify-start items-start mb-3">
+        <label className="font-semibold">Product Name</label>
+        <input type="text" className="outline-none border-b-2 border-gray-700 focus:border-blue-600 w-full py-1 rounded-sm" {...register("productName")} />
+        </div>
+
+        <div className="flex flex-col justify-start items-start mb-3">
+        <label className="font-semibold">Category</label>
+        <input type="text" className="outline-none border-b-2 border-gray-700 focus:border-blue-600 w-full py-1 rounded-sm" {...register("category")} />
+        </div>
+
+        <div className="flex flex-col justify-start items-start mb-3">
+        <label className="font-semibold">Stock Quantity</label>
+        <input type="number" className="outline-none border-b-2 border-gray-700 focus:border-blue-600 w-full py-1 rounded-sm" {...register("stockQuantity")} />
+        </div>
+
+        <div className="flex flex-col justify-start items-start mb-3">
+        <label className="font-semibold">Price</label>
+        <input type="number" className="outline-none border-b-2 border-gray-700 focus:border-blue-600 w-full py-1 rounded-sm" {...register("price")} />
+        </div>
+
+        <div className="flex flex-col justify-start items-start mb-3">
+        <label className="font-semibold">Rating</label>
+        <input type="text" className="outline-none border-b-2 border-gray-700 focus:border-blue-600 w-full py-1 rounded-sm" {...register("rating")} />
+        </div>
+
+        <div className="flex flex-col justify-start items-start mb-3">
+        <label className="font-semibold">Description</label>
+        <input type="text" className="outline-none border-b-2 border-gray-700 focus:border-blue-600 w-full py-1 rounded-sm" {...register("description")} />
+        </div>
+
+        <div className="flex flex-col justify-start items-start mb-3">
+        <label className="font-semibold mb-3">Images (URL)</label>
+        <input type="text" className="outline-none border-b-2 border-gray-600 focus:border-blue-600 w-full py-1 rounded-sm" {...register("image1")} placeholder="image 1"/>
+        <input type="text" className="outline-none border-b-2 border-gray-600 focus:border-blue-600 w-full py-1 rounded-sm" {...register("image2")} placeholder="image 2"/>
+        <input type="text" className="outline-none border-b-2 border-gray-600 focus:border-blue-600 w-full py-1 rounded-sm" {...register("image3")} placeholder="image 3"/>
+
+        {/* {maxImageError &&  <span className="text-red-500 font-semibold text-sm mt-1">{maxImageError}</span> } */}
+        
+        </div>
+       
 
 
-<button type="submit" className="px-8 text-sm lg:text-base mr-3 py-2 md:py-2 font-semibold text-white rounded transition bg-black hover:bg-gray-800 "> Add</button>
+<button type="submit" className="px-8 text-sm lg:text-base mt-6 mr-3 py-2 md:py-2 font-semibold text-white rounded transition bg-black hover:bg-gray-800 "> Add</button>
 
 <button onClick={() => setOpen(!open)} className="px-8 text-sm lg:text-base mr-3 py-2 md:py-2 font-semibold text-white rounded transition bg-red-600 hover:bg-red-700 "> Close </button>
 </form>
