@@ -1,55 +1,13 @@
 import { useState } from "react"
-import CreateProductModal from "../components/ui/Modal/CreateProductModal";
+import CreateProductModal, { TProduct } from "../components/ui/Modal/CreateProductModal";
+import { useGetProductsQuery } from "../redux/features/product/productApi";
+import { ClipLoader } from "react-spinners";
 
 
 export default function ProductManagement() {
-    const [openCreateModal, setOpenCreateModal ] = useState(false);
-
-    const allParcels = [ {
-        "_id": "656600ea79a25b077facbb32",
-        "name": "Rasel Hasan",
-        "email": "rasel@gmail.com",
-        "phone": "01875466519",
-        "parcel_type": "Walton Refrigerator 176 Ltr",
-        "weight": "12",
-        "product_img": "https://i.ibb.co/pW39xvt/download-6.jpg",
-        "receiver_name": "Rokib Vai",
-        "receiver_phone": "01445457215",
-        "delivery_address": "Cumilla, Bangladesh",
-        "req_date": "2023-12-14",
-        "booking_date": "11/28/2023",
-        "address_lat": "23.450001",
-        "address_long": "91.199997",
-        "cost": 150,
-        "payment": "paid",
-        "status": "delivered",
-        "approx_date": "2023-12-13",
-        "delivery_man_id": "65626922b7d84d0940bd1815",
-        "converted_req_date": "2023-12-14T00:00:00.000Z"
-    },
-    {
-        "_id": "6568c65a86cd092f6ec9a109",
-        "name": "Rasel Hasan",
-        "email": "rasel@gmail.com",
-        "phone": "01875466519",
-        "parcel_type": "Hisense Washing Machine ",
-        "weight": "22",
-        "product_img": "https://i.ibb.co/hgQ1nWZ/images-12.jpg",
-        "receiver_name": "Shuvo Saha",
-        "receiver_phone": "01478545154",
-        "delivery_address": "Rajshahi , Bangladesh",
-        "req_date": "2023-12-14",
-        "booking_date": "11/30/2023",
-        "address_lat": "\t24.3635886",
-        "address_long": "\t88.6241351",
-        "cost": 150,
-        "payment": "paid",
-        "status": "delivered",
-        "__v": 0,
-        "approx_date": "2023-12-06",
-        "delivery_man_id": "6568d16877ab8aad8bb30143",
-        "converted_req_date": "2023-12-14T00:00:00.000Z"
-    }]
+    const [openCreateModal, setOpenCreateModal ] = useState<boolean>(false);
+    const { data, isLoading } = useGetProductsQuery(undefined);
+    const products: TProduct[] = data?.data || []
 
   return (
    <section className="max-w-[1300px] mx-auto px-4 my-2 md:my-6 lg:my-10 mb-10 font-prompt"> 
@@ -107,31 +65,30 @@ export default function ProductManagement() {
           </thead>
           <tbody className="relative">
 
-          {/* {isLoading && <RotatingTriangles
-  visible={true}
-  height="80"
-  width="80"
-  ariaLabel="rotating-triangels-loading"
-  wrapperStyle={{}}
-  wrapperClass="absolute top-[6%] md:top-[8%] left-2/4 mt-10"
-/>} */}
+          {isLoading && <ClipLoader
+           color='#000002'
+           loading={isLoading}
+          className="absolute top-14 left-2/4"
+           size={60}
+           aria-label="Loading Spinner"
+           speedMultiplier={0.8} />}
           
-          {allParcels?.map(parcel =>  <tr key={parcel._id} className="border-b ">
+          {products?.map(product =>  <tr key={product._id} className="border-b ">
               <td
                 className="whitespace-nowrap border-r px-6 py-4 font-medium dark:border-neutral-500 flex items-center justify-center">
-                <img src={parcel.product_img} className="w-[52px] h-[52px] md:w-24 md:h-24 object-contain" />
+                <img src={product.images[0]} className="w-[52px] h-[52px] md:w-24 md:h-24 object-contain" />
               </td>
               <td
                 className=" border-r font-medium text-sm md:text-lg  text-gray-600 text-start md:text-center px-6 py-4 dark:border-neutral-500">
-                {parcel.name}
+                {product.product_name}
               </td>
               <td
                 className="whitespace-nowrap font-medium  text-sm md:text-lg border-r px-6 py-4 dark:border-neutral-500">
-                {parcel.phone}
+                {product.price}
               </td>
               <td
                 className="whitespace-nowrap font-medium  text-sm md:text-lg border-r px-6 py-4 dark:border-neutral-500">
-                {parcel.booking_date}
+                {product.category}
               </td>
               
               
@@ -154,7 +111,7 @@ export default function ProductManagement() {
          
           </tbody>
         </table>
-        {!allParcels?.length && <p className="text-xl text-center mt-44 text-gray-500"> No Parcels  </p>}
+        {!products?.length && <p className="text-xl text-center mt-44 text-gray-500"> No Products </p>}
       </div>
     </div>
   </div>

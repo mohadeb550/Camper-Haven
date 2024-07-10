@@ -1,36 +1,62 @@
 
-import { useForm } from "react-hook-form";
+import {useForm } from "react-hook-form";
+import { useCreateProductMutation } from "../../../redux/features/product/productApi";
+import { ClipLoader } from "react-spinners";
+import { toast } from "sonner";
+
+// type for product
+export type TProduct = {
+    _id? : string,
+    product_name : string,
+    category : string,
+    stock_quantity : number,
+    price : number,
+    description : string,
+    rating : number,
+    images : string[];
+    createdAt? : string,
+    updatedAt? : string,
+};
+
+type TModalProps = {
+  open : boolean,
+  setOpen : React.Dispatch<React.SetStateAction<boolean>>
+}
 
 
-
-export default function CreateProductModal({ open, setOpen} : { open: boolean, setOpen: object}) {
+export default function CreateProductModal({ open, setOpen} : TModalProps) {
 
   const { register, handleSubmit } = useForm();
-  // const [maxImageError ,setMaxImageError ] = useState('')
+  const [createProduct, { isLoading }] = useCreateProductMutation();
 
 
-  const onSubmit = (data) => {
+  // console.log(res)
+
+  const onSubmit = async (data ) => {
     
-  // const selectedFiles = Array.from(data.images)
-
-  // max images validation 
-  // if(selectedFiles.length > 3){
-  //   setMaxImageError('You cannot select more than 3 images')
-  //   return;
-  // }else{
-  //   setMaxImageError('')
-  // }
-
-  let productData = {
+  const productData : TProduct = {
     product_name : data.productName,
     category : data.category,
-    stock_quantity : data.stockQuantity,
-    price : data.price,
+    stock_quantity : parseInt(data.stockQuantity),
+    price : parseInt(data.price),
     description : data.description,
-    rating : data.rating,
-    images : [ data.image1, data.image2, data.image3]
+    rating : parseFloat(data.rating),
+    images : [ data.image1, data.image2, data.image3],
   }
-  console.log(productData)
+
+  try {
+    const response =  await createProduct(productData).unwrap();
+
+  if(response?.success){
+    // close the modal 
+    setOpen(false)
+    // show a toast 
+    toast.success('New Product has been created')
+  }
+  }catch(error){
+    toast.error('Something went wrong')
+    console.log(error)
+  }
  
   }
 
@@ -38,7 +64,18 @@ export default function CreateProductModal({ open, setOpen} : { open: boolean, s
   return (
     <section className="w-screen h-screen fixed top-0 left-0 right-0 bottom-0 z-50  bg-black/30 backdrop-blur-sm flex justify-center items-center overflow-y-auto">  
        
-       <form className="w-[400px] md:w-[600px] p-7 bg-white rounded-md" onSubmit={handleSubmit(onSubmit)}>
+       <form className="w-[400px] md:w-[600px] p-7 bg-white rounded-md relative" onSubmit={handleSubmit(onSubmit)}>
+
+        {/* loading white layer  */}
+      {isLoading && <div className="w-full h-full absolute top-0 left-0 right-0 bottom-0 bg-white/80 rounded-md flex justify-center items-center"> 
+        <ClipLoader
+           color='#000002'
+           loading={isLoading}
+          //  cssOverride={override}
+           size={60}
+           aria-label="Loading Spinner"
+           speedMultiplier={0.8} />
+      </div>}
 
         <div className="flex flex-col justify-start items-start mb-3">
         <label className="font-semibold">Product Name</label>
