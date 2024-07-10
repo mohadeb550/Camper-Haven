@@ -1,13 +1,50 @@
 import { useState } from "react"
 import CreateProductModal, { TProduct } from "../components/ui/Modal/CreateProductModal";
-import { useGetProductsQuery } from "../redux/features/product/productApi";
+import { useDeleteProductMutation, useGetProductsQuery } from "../redux/features/product/productApi";
 import { ClipLoader } from "react-spinners";
+import Swal from "sweetalert2";
+import UpdateProductModal from "../components/ui/Modal/UpdateProductModal";
 
 
 export default function ProductManagement() {
+
     const [openCreateModal, setOpenCreateModal ] = useState<boolean>(false);
+    const [openUpdateModal, setOpenUpdateModal ] = useState<boolean>(false);
     const { data, isLoading } = useGetProductsQuery(undefined);
+    const [ deleteProductFromDB ] = useDeleteProductMutation();
+    const [updateProductId, setUpdateProductId ] = useState('')
+
     const products: TProduct[] = data?.data || []
+
+
+
+    // delete a product 
+    const deleteProduct = (productId: string) => {
+    Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+
+}).then( async (result) => {
+  if (result.isConfirmed) {
+   const response = await deleteProductFromDB(productId).unwrap()
+   if(response.success){
+    Swal.fire({
+      title: "Deleted!",
+      text: "Product has been deleted.",
+      icon: "success"
+    });
+   }
+
+  }
+});
+    }
+
+
 
   return (
    <section className="max-w-[1300px] mx-auto px-4 my-2 md:my-6 lg:my-10 mb-10 font-prompt"> 
@@ -22,8 +59,13 @@ export default function ProductManagement() {
    onClick={() => setOpenCreateModal(true)}
     className=" px-6 text-sm lg:text-base mr-3 py-2 md:py-2 xl:py-3 font-semibold text-gray-900 rounded transition bg-gray-100 hover:bg-gray-200 whitespace-nowrap">Add New Product</button>
 
+
    {/* create product modal  */}
    {openCreateModal && <CreateProductModal open={openCreateModal} setOpen={setOpenCreateModal}/>}
+
+
+   {/* update product modal  */}
+   {openUpdateModal && <UpdateProductModal productId={updateProductId} open={openUpdateModal} setOpen={setOpenUpdateModal}/>}
     
    </div>
 
@@ -94,15 +136,20 @@ export default function ProductManagement() {
               
               <td className="whitespace-nowrap font-medium border-r text-sm md:text-lg  px-6 py-4 dark:border-neutral-500">
              
-             <button className={`bg-blue-700 p-1 px-2 md:py-2 md:px-4 text-white rounded font-semibold transition-all hover:bg-blue-800 text-[12px] md:text-base `} > 
+             <button className={`bg-blue-700 p-1 px-2 md:py-2 md:px-4 text-white rounded font-semibold transition-all hover:bg-blue-800 text-[12px] md:text-base `}
+             onClick={() => {
+              setUpdateProductId(product._id!)
+              setOpenUpdateModal(true)
+              }} > 
              Modify</button>
     
                </td>
 
               <td className="whitespace-nowrap font-medium  text-sm md:text-lg  px-6 py-4 dark:border-neutral-500">
-             
-            
-             <button className={`bg-red-600 p-1 px-2 md:py-2 md:px-4 text-white rounded font-semibold transition-all hover:bg-red-700 text-[12px] md:text-base `} > 
+
+             {/* delete product  */}
+             <button className={`bg-red-600 p-1 px-2 md:py-2 md:px-4 text-white rounded font-semibold transition-all hover:bg-red-700 text-[12px] md:text-base `}
+             onClick={() => deleteProduct(product._id!)} > 
              Delete </button>
     
                </td>
