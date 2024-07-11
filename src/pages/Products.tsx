@@ -16,7 +16,6 @@ export default function Products() {
     const resetFilterQuery = () => {
       setFilterQuery({})  
     }
-
   return (
     
 

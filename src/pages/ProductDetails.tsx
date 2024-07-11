@@ -15,26 +15,42 @@ import { ClipLoader } from "react-spinners"
 import { useGetSingleProductQuery } from "../redux/features/product/productApi"
 import { TProduct } from "../components/ui/Modal/CreateProductModal"
 import Rating from "react-rating"
+import { useAppDispatch } from "../redux/hooks"
+import { addProductToCart, TCartItem } from "../redux/features/cart/cartSlice"
 
 
 export default function ProductDetails() {
     const params = useParams();
     const { data, isLoading } = useGetSingleProductQuery(params.productId as string);
-
+    const dispatch = useAppDispatch() 
    const product : TProduct = data?.data;
 
-  
-    if(isLoading ){return  <ClipLoader
-        color='#000002'
-        size={60}
-        className="absolute top-28 left-2/4"
-        aria-label="Loading Spinner"
-        speedMultiplier={0.8} />}
+   if(isLoading ){return  <ClipLoader
+    color='#000002'
+    size={60}
+    className="absolute top-28 left-2/4"
+    aria-label="Loading Spinner"
+    speedMultiplier={0.8} />}
 
 
-        const {_id, product_name, images, price, rating, stock_quantity, description, category} = product;
+   const {_id, product_name, images, price, rating, stock_quantity, description, category} = product;
 
-        
+
+//    add item to cart 
+     const handleAddProductToCart = () => {
+        const productData : TCartItem = {
+            _id : _id!,
+            product_name,
+            price : price,
+            image : images[0],
+            quantity : 1,
+            stock_quantity,
+            date : new Date().toDateString(),
+
+        }
+        dispatch(addProductToCart(productData))
+     }
+
 
   return (
     <section className="max-w-[1300px] mx-auto px-4 my-2 md:my-14 lg:my-20 mb-10">
@@ -69,8 +85,10 @@ export default function ProductDetails() {
     </div>
 
             <div className="flex gap-2">
-                <Link to={`/purchase-page/${_id}`}>
-                <button  className="bg-gray-800 disabled:bg-gray-300 py-4 px-14 text-white rounded font-semibold transition-all flex items-center gap-2 hover:bg-gray-700 text-sm md:text-base disabled:cursor-not-allowed" disabled={stock_quantity < 1}> <BsCart2 className="text-xl" />Add to cart </button></Link>
+                
+                <button 
+                onClick={handleAddProductToCart}
+                 className="bg-gray-800 disabled:bg-gray-300 py-4 px-14 text-white rounded font-semibold transition-all flex items-center gap-2 hover:bg-gray-700 text-sm md:text-base disabled:cursor-not-allowed" disabled={stock_quantity < 1}> <BsCart2 className="text-xl" />Add to cart </button>
                 <p className="flex items-center justify-center p-4 border rounded "> <GiSelfLove/> </p>
             </div>
 
