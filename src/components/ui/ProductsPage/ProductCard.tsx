@@ -31,7 +31,7 @@ export default function ProductCard({ product } : { product : TProduct}) {
    <div className="flex gap-3 flex-grow">
 
     <div className="flex justify-center items-center w-full">
-    <Link to={`/products/${_id}`} > <button className="bg-gray-900/90 py-[5px] px-14 text-white rounded font-semibold transition-all hover:bg-gray-700 text-sm md:text-base"> See Details </button></Link>
+    <Link to={`/products/${_id}`} > <button className="bg-gray-900/90 px-14 md:px-6 py-[5px] xl:px-14 text-white rounded font-semibold transition-all whitespace-nowrap hover:bg-gray-700 text-sm md:text-base"> See Details </button></Link>
     </div>
   
    </div>
