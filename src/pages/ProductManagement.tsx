@@ -126,7 +126,7 @@ export default function ProductManagement() {
               </td>
               <td
                 className="whitespace-nowrap font-medium  text-sm md:text-lg border-r px-6 py-4 dark:border-neutral-500">
-                {product.price}
+                {product.price}$
               </td>
               <td
                 className="whitespace-nowrap font-medium  text-sm md:text-lg border-r px-6 py-4 dark:border-neutral-500">

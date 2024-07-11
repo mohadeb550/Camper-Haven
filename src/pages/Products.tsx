@@ -1,6 +1,4 @@
 
-
-import TopFoodCard from "../components/ui/ProductsPage/ProductCard";
 import { useState } from "react";
 import SearchBanner from "../components/ui/ProductsPage/SearchBanner";
 import { useGetProductsQuery } from "../redux/features/product/productApi";
@@ -9,66 +7,59 @@ import ProductCard from "../components/ui/ProductsPage/ProductCard";
 
 
 
-
 export default function Products() {
-    const { data , isLoading, isSuccess } = useGetProductsQuery(undefined);
+
+  const [ filterQuery, setFilterQuery ] = useState({})
+    const { data , isFetching } = useGetProductsQuery(filterQuery);
     const products = data?.data || [];
 
-    // const [ searchName, setSearchName ] = useState('');
-    // const [ sortType, setSortType ] = useState('');
-    // const [ selectedCategory , setSelectedCategory ] = useState('');
-
-
- 
-// for pagination 
-    // useEffect(()=>{
-        
-    //     setTotalFoods(allFoods?.totalFood)
-    //     if(totalFoods){
-    //         setTotalPage(Math.ceil(totalFoods / foodPerPage));
-
-    //         let pgsArray = [];
-  
-    //         for(let i = 0; i < totalPage; i++){
-    //             pgsArray.push(i)
-    //         }
-    //         setPageArray([...pgsArray])
-    //     }   
-    // },[allFoods, totalFoods, foodPerPage, totalPage, currentPage])
-
-
-
-
-    // const handleSearch = (e) => {
-    //     setSearchName(e.target.value)
-    // }
-
+    const resetFilterQuery = () => {
+      setFilterQuery({})  
+    }
 
   return (
     
 
     <section className="my-2 md:my-6 lg:my-8 lg:px-0 max-w-[1300px] mx-auto px-5" >
-
     
-          {/* <SearchBanner handleSearch={handleSearch} /> */}
+          <SearchBanner setFilterQuery={setFilterQuery} />
       
-        {isLoading && <ClipLoader
+        {isFetching && <ClipLoader
            color='#000002'
            size={60}
+           className="absolute top-72 md:top-2/4 left-2/4"
            aria-label="Loading Spinner"
            speedMultiplier={0.8} /> }
 
         <section>
-{/* 
-          <div className="flex justify-end my-6 gap-3 px-5 md:px-0">
-          <select onChange={(e)=> setSortType(e.target.value)} className=" w-full max-w-xs outline p-2 outline-black/20 rounded-sm outline-1 ">
+
+          {/* all filtering section  */}
+          <div className="flex justify-between md:justify-end my-6 gap-3 flex-wrap-reverse">
+            
+          <select 
+          onChange={(e)=> setFilterQuery(prev => ({...prev, sortByPrice: e.target.value}))}
+           className=" max-w-xs outline p-2 outline-black/20 rounded-sm outline-1 text-xs md:text-sm">
               <option disabled selected> Sort by Price</option>
-               <option value=''> Random </option>
                <option value='1'> Low to High</option>
                <option value='-1'> High to Low</option>
         </select>
+
+          <select
+           onChange={(e)=> setFilterQuery(prev => ({...prev, priceRange: e.target.value}))}
+
+            className=" max-w-xs outline p-2 outline-black/20 rounded-sm outline-1 text-xs md:text-sm">
+              <option disabled selected>Filter by Price</option>
+               <option value='0-20'>0 - 20$</option>
+               <option value='20-40'>20 - 40$</option>
+               <option value='40-60'>40 - 60$</option>
+               <option value='60-80'>60 - 80$</option>
+               <option value='80-100'>80 - 100$</option>
+               <option value='0-0'>Custom</option>
+        </select>
         
-        <select onChange={(e) => setSelectedCategory(e.target.value)} className=" w-full max-w-xs outline p-2 outline-black/20 rounded-sm outline-1 ">
+        <select 
+        onChange={(e) => setFilterQuery(prev => ({...prev, category: e.target.value}))}
+         className=" max-w-xs outline p-2 outline-black/20 rounded-sm outline-1 text-xs md:text-sm ">
               <option disabled selected> Filter by Category</option>
               <option value=''> None </option>
               <option value='appetizers'> Appetizers </option>
@@ -77,24 +68,21 @@ export default function Products() {
             <option value='pizzas'> Pizzas</option>
             <option value='burger'> Burger </option>
             <option value='bbq'>BBQ and Grilled </option>
-            <option value='desserts'> Desserts </option>
-            <option value='beverages'> Beverages </option>
-            <option value='seasonal'>  Seasonal </option>
-            <option value='vegan'> Vegan Options </option>
-            <option value='breakfast'> Breakfast Classics </option>
-            <option value='street'> Street Food </option>
-            <option value='cheese'> Cheese and Charcuterie  </option>
-            <option value='soup'>Soup </option>
-            <option value='fusion'>International Fusion </option>
-            <option value='vegetarian'> Vegetarian </option>
+        
         </select>
-          </div> */}
+
+    {/* reset  */}
+        <button
+        onClick={resetFilterQuery} 
+        className="px-2 md:px-8 text-sm lg:text-base py-2 md:py-2 font-semibold text-gray-800 rounded transition bg-gray-100 hover:bg-gray-200 ">Reset</button>
+          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 justify-items-center gap-7  mb-8 md:mb-16 xl:mt-20">
             {products?.map(product => <ProductCard  product={product} /> )}
         </div> 
 
-        {/* { (!products || !allFoods.foods.length) && <p className="mt-4 text-center">No results Found</p>} */}
+          {/* no products direction  */}
+        { (!products || !products.length) && <p className="text-base md:text-lg mt-4 text-center">No Products Found</p>}
 
         </section>
           

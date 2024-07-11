@@ -36,7 +36,7 @@ export default function CreateProductModal({ open, setOpen} : TModalProps) {
     
   const productData : TProduct = {
     product_name : data.productName,
-    category : data.category,
+    category : data.category.toLowerCase(),
     stock_quantity : parseInt(data.stockQuantity),
     price : parseInt(data.price),
     description : data.description,
