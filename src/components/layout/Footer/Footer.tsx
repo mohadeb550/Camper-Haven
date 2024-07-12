@@ -35,10 +35,10 @@ export default function Footer() {
             <h2 className="text-gray-600 font-semibold text-xl mb-5">About</h2>
 
             <div className="flex flex-col gap-3 text-slate-700/70 ">
-            <span className="font-medium hover:text-[#471276] cursor-pointer">Shipping Policy</span>
-            <span className="font-medium hover:text-[#471276] cursor-pointer">Returns Policy</span>
-            <span className="font-medium hover:text-[#471276] cursor-pointer">Terms and Conditions</span>
-            <span className="font-medium hover:text-[#471276] cursor-pointer">Privacy Policy</span>
+            <span className="font-medium hover:text-red-500 cursor-pointer">Shipping Policy</span>
+            <span className="font-medium hover:text-red-500 cursor-pointer">Returns Policy</span>
+            <span className="font-medium hover:text-red-500 cursor-pointer">Terms and Conditions</span>
+            <span className="font-medium hover:text-red-500 cursor-pointer">Privacy Policy</span>
            
             </div>
             </div>
@@ -48,10 +48,10 @@ export default function Footer() {
             <h2 className="text-gray-600 font-semibold text-xl mb-5">Categories</h2>
 
             <div className="flex flex-col gap-3 text-slate-700/70 ">
-            <span className="font-medium hover:text-[#471276] cursor-pointer">Activewear</span>
-            <span className="font-medium hover:text-[#471276] cursor-pointer">Dresses</span>
-            <span className="font-medium hover:text-[#471276] cursor-pointer">Tent and Bags</span>
-            <span className="font-medium hover:text-[#471276] cursor-pointer">Shoes and Shoes</span>
+            <span className="font-medium hover:text-red-500 cursor-pointer">Activewear</span>
+            <span className="font-medium hover:text-red-500 cursor-pointer">Dresses</span>
+            <span className="font-medium hover:text-red-500 cursor-pointer">Tent and Bags</span>
+            <span className="font-medium hover:text-red-500 cursor-pointer">Shoes and Shoes</span>
            
             </div>
             </div>
@@ -61,8 +61,8 @@ export default function Footer() {
             <h2 className="text-gray-600 font-semibold text-xl mb-5">Have Questions?</h2>
 
             <div className="flex flex-col gap-2">
-            <span className=" text-[#471276] text-lg cursor-pointer">+88-09617-111-888</span>
-            <span className=" text-[#471276] text-lg cursor-pointer">sales@flightexpert.com</span>
+            <span className=" text-red-500 text-lg cursor-pointer">+88-09617-111-888</span>
+            <span className=" text-red-500 text-lg cursor-pointer">sales@flightexpert.com</span>
             <span className="font-medium text-[15px]  cursor-pointer">Dedicated Customer Support</span>
             <span className="text-xs  cursor-pointer">Sat-Thurs: 9AM-9PM <br/>
 Friday/Govt. Holidays: 10AM-6PM</span>

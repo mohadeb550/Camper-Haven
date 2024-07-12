@@ -2,12 +2,14 @@ import Headroom from "react-headroom"
 import DrawerNav from "./DrawerNavbar"
 import { HiOutlineMenu } from "react-icons/hi";
 import Container from "../Container";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { LuShoppingCart } from "react-icons/lu";
 import { FiHeart } from "react-icons/fi";
+import { useAppSelector } from "../../../redux/hooks";
 
 
 export default function Navbar() {
+  const cartItems = useAppSelector(state => state.cart);
 
   
   const navLinks = <>
@@ -20,7 +22,7 @@ export default function Navbar() {
    <li ><NavLink to='/product-management' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400`} >Product Management</NavLink></li>
 
 
-   <li ><NavLink to='/' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400`} >About Us</NavLink></li>
+   <li ><NavLink to='/about-us' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400`} >About Us</NavLink></li>
 
   
    
@@ -49,14 +51,17 @@ export default function Navbar() {
 </ul>
 
 
-
 <div className="flex items-center justify-center  gap-2 z-50">
 
 
 {/* cart  */}  
 <div className="mr-3 md:mr-5 text-xl md:text-[22px] lg:text-2xl text-black flex gap-5 md:gap-6 ">
+
     <FiHeart/>
-  <LuShoppingCart/>
+    <div className="relative">
+     {cartItems.length?  <p className="bg-red-500 size-5 absolute -top-2 -right-3 text-sm text-white font-semibold flex items-center justify-center rounded-full">{cartItems.length}</p> : ''}
+    <Link to={'/cart'}> <LuShoppingCart/></Link>
+    </div>
 </div>
 
 {/* label for open daisy ui drawer that component has another file  */}

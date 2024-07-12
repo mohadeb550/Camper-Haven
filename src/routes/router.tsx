@@ -7,6 +7,7 @@ import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import OrderSuccessPage from "../pages/OrderSuccessPage";
+import AboutUs from "../pages/AboutUs";
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
             {
                 path: '/order-successful',
                 element: <OrderSuccessPage/>
+            },
+            {
+                path: '/about-us',
+                element: <AboutUs/>
             },
         ]
     }
