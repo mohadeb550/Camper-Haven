@@ -6,7 +6,7 @@ const FaqSection = () => {
 
     return (
        <Container>
-         <div id="faq-section" className="mb-20 md:mb-16 lg:mb-28 xl:mb-48"> 
+         <div id="faq-section" className="mb-20 md:mb-16 lg:mb-24 xl:mb-32"> 
 
          <h1 className="text-[26px] md:text-3xl lg:text-[40px] text-gray-700 text-center " >Frequently Asked Questions</h1>
          <p className="text-center text-sm md:text-lg max-w-[1040px] mx-auto text-gray-600 mt-2 md:mt-5 mb-10 md:mb-16 lg:mb-20 font-play" >Experience the extraordinary with our range of signature products.  promising an unforgettable dining experience.</p>

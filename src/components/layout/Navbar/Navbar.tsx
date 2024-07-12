@@ -55,10 +55,10 @@ export default function Navbar() {
 
 
 {/* cart  */}  
-<div className="mr-3 md:mr-5 text-xl md:text-[22px] lg:text-2xl text-black flex gap-5 md:gap-6 ">
+<div className="mr-3 md:mr-5 rounded-full text-xl md:text-[22px] lg:text-2xl text-black flex gap-5 md:gap-6 ">
 
     <FiHeart/>
-    <div className="relative">
+    <div className="relative hover:bg-gray-100 rounded-full ">
      {cartItems.length?  <p className="bg-red-500 size-5 absolute -top-2 -right-3 text-sm text-white font-semibold flex items-center justify-center rounded-full">{cartItems.length}</p> : ''}
     <Link to={'/cart'}> <LuShoppingCart/></Link>
     </div>

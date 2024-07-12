@@ -1,15 +1,37 @@
 
 import { useForm } from 'react-hook-form';
 import Container from '../components/layout/Container';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { TProduct } from '../components/ui/Modal/CreateProductModal';
+import { useCreateOrderMutation } from '../redux/features/order/orderApi';
+import { ClipLoader } from 'react-spinners';
+import { toast } from 'sonner';
 
 
 const Checkout = () => {
     const { register, handleSubmit } = useForm();
+    const [ createProduct , { isLoading , data }] = useCreateOrderMutation();
+    const location = useLocation();
     const navigate = useNavigate();
 
-    const onSubmit = (data) => {
-        navigate('/order-successful')        
+
+    const onSubmit = async (data) => {
+        // extracting id and quantity 
+        const orderedProducts = location.state?.cartItems.map((product: TProduct) => 
+            ({ productId : product._id, quantity : product.quantity}))
+
+        const orderData = {
+            ...data,
+            orderedProducts,
+            total : location.state?.total,
+        }
+
+      const response = await createProduct(orderData).unwrap();
+        if(response.success){
+             navigate('/order-successful')     
+        }else{
+            toast.error('Something went wrong')
+        }  
     }
 
     return (
@@ -54,16 +76,26 @@ const Checkout = () => {
 <div className="flex flex-col justify-start items-start mb-3">
 <label className="font-semibold">Payment Method</label>
 <select className=" max-w-xs outline p-2 mt-1 outline-black/20 rounded-sm outline-1 text-xs md:text-sm " {...register("paymentMethod")} >
-              <option disabled selected>None</option>
               <option value='cod'>Cash on delivery</option>
-              <option value='stripe'>Strip Payment</option>
+              <option value='stripe'>Stripe Payment</option>
         </select>
 </div>
 
 </section>
 
 
-<div className="flex-1 w-full h-full flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 space-y-6   bg-gray-50">
+<div className="flex-1 w-full h-full flex flex-col justify-center px-4 py-6 md:p-6 xl:p-8 space-y-6  bg-gray-50 relative">
+
+       {/* loading white layer  */}
+       {isLoading && <div className="w-full h-full absolute top-0 left-0 right-0 bottom-0 bg-white/80 rounded-md flex justify-center items-center"> 
+        <ClipLoader
+           color='#000002'
+           loading={isLoading}
+          //  cssOverride={override}
+           size={60}
+           aria-label="Loading Spinner"
+           speedMultiplier={0.8} />
+      </div>}
                             <h3 className="text-xl font-semibold leading-5 text-gray-800">Shipping</h3>
                             <div className="flex justify-between items-start w-full">
                                 <div className="flex justify-center items-center space-x-4">

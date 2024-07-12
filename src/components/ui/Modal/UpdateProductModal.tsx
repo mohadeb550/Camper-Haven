@@ -93,7 +93,18 @@ export default function UpdateProductModal({ open, setOpen, productId} : TModalP
 
         <div className="flex flex-col justify-start items-start mb-3">
         <label className="font-semibold">Category</label>
-        <input type="text" className="outline-none border-b-2 border-gray-700 focus:border-blue-600 w-full py-1 rounded-sm"  {...register("category")} />
+         <select className="w-full outline p-2 mt-3 outline-black/20 rounded-sm outline-1 text-xs md:text-sm " {...register("category")} >
+              <option disabled selected>Select Category</option>
+              <option value='camp kitchen'>Camp Kitchen</option>
+              <option value='gear'>Gear</option>
+              <option value='power'>Power</option>
+              <option value='personal care'>Personal Care</option>
+              <option value='sleeping'>Sleeping</option>
+              <option value='shelter'>Shelter</option>
+              <option value='furry friends'>Furry Friends</option>
+              <option value='merch'>Merch</option>
+        </select>
+
         </div>
 
         <div className="flex flex-col justify-start items-start mb-3">

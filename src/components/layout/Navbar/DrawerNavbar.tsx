@@ -1,12 +1,24 @@
 
 import { AiOutlineClose } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 const DrawerNav = () => {
 
   const navLinks = <>
-<li ><a href="/" className={`font-semibold text-md px-3 py-[3px] `} >About Us </a></li>
+  <li ><NavLink to='/' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400 rounded`} >Home</NavLink></li>
+  
+  <li ><NavLink to='/products' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400 rounded`} >Products</NavLink></li>
 
-</>
+  <li ><NavLink to='/cart' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400 rounded`} >Cart</NavLink></li>
+
+  <li ><NavLink to='/product-management' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400 rounded`} >Product Management</NavLink></li>
+
+
+  <li ><NavLink to='/about-us' className={`cursor-pointer font-semibold  px-4 py-[3px] text-gray-700  hover:border-b-[1px] border-b-gray-400 rounded`} >About Us</NavLink></li>
+
+ 
+  
+ </>
 
     return (
         <>

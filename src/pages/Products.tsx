@@ -60,13 +60,14 @@ export default function Products() {
         onChange={(e) => setFilterQuery(prev => ({...prev, category: e.target.value}))}
          className=" max-w-xs outline p-2 outline-black/20 rounded-sm outline-1 text-xs md:text-sm ">
               <option disabled selected> Filter by Category</option>
-              <option value=''> None </option>
-              <option value='appetizers'> Appetizers </option>
-            <option value='salads'> Salads and Bowls </option>
-            <option value='sandwiches'> Sandwiches </option>
-            <option value='pizzas'> Pizzas</option>
-            <option value='burger'> Burger </option>
-            <option value='bbq'>BBQ and Grilled </option>
+              <option value='camp kitchen'>Camp Kitchen</option>
+              <option value='gear'>Gear</option>
+              <option value='power'>Power</option>
+              <option value='personal care'>Personal Care</option>
+              <option value='sleeping'>Sleeping</option>
+              <option value='shelter'>Shelter</option>
+              <option value='furry friends'>Furry Friends</option>
+              <option value='merch'>Merch</option>
         
         </select>
 

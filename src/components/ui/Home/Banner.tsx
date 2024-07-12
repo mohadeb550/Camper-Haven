@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Container from "../../layout/Container";
 
 
@@ -14,14 +15,15 @@ export default function Banner() {
     <h1 className=" text-4xl md:text-5xl xl:text-6xl text-gray-800">Elevate Your Style With <br/> Our New Collections</h1>
     <p className="text-sm md:text-base lg:text-lg lg:font-medium text-gray-600"> Discover our wide range of campers and RVs perfect for your next adventure. Start your journey today!</p>
 
-<button className=" px-8 text-sm lg:text-base mr-3 py-2 md:py-2 xl:py-3 font-semibold text-white rounded transition bg-black hover:bg-gray-800 whitespace-nowrap">Shop Now</button>
+<Link to={'/products'}>
+<button className="mt-6 px-8 text-sm lg:text-base mr-3 py-2 md:py-2 xl:py-3 font-semibold text-white rounded transition bg-black hover:bg-gray-800 whitespace-nowrap">Shop Now</button></Link>
     
 
   </div>
 </div>
 
-<div className="flex-1 h-full w-full pt-2 md:pt-14">
-    <img src="/src/assets/images/—Pngtree—happy shopping boy_4496189.png" className=" h-[300px] md:h-full w-full object-contain" />
+<div className="flex-1 h-full w-full pt-2 xl:pt-4">
+    <img src="/src/assets/images/120897-Photoroom.png" className=" h-[300px] md:h-full w-full object-contain" />
 </div>
 
 

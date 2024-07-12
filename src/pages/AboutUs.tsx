@@ -14,7 +14,7 @@ import TeamSection from "../components/ui/AboutUS/TeamSection/TeamSection";
 const AboutUs = () => {
     return (
         <Container>
-         <div className="flex flex-col lg:flex-row gap-8 relative lg:mt-5">
+         <div className="flex flex-col lg:flex-row md:gap-8 lg:gap-10 relative lg:mt-5">
 
             {/* left side  */}
                 <div className="w-full h-[500px] lg:w-[40%] bg-cover flex flex-col items-start mt-2">
@@ -64,12 +64,29 @@ const AboutUs = () => {
                 
         </div>
        <div className="flex justify-center items-center">
-       <button type="submit" className="p-3 outline-none bg-gray-700 border font-semibold text-gray-100 text-lg my-6 px-10 w-full"> Send </button>
+       <button type="submit" className="rounded-lg p-3 outline-none bg-gray-700 border font-semibold text-gray-100 text-lg my-6 px-10 w-full"> Send </button>
        </div>
       
     </div>
                 </div>
         </div> 
+
+        {/* Passion and Values of the company  */}
+
+
+        <div className="flex justify-center mt-24">
+            <img src="/src/assets/images/360_F_302219229_jJgc49qbWyz9As6BjuPgG9SZwTJLYWe8-Photoroom.png" />
+        </div>
+        
+        <div className="flex flex-col gap-6">
+            <h2 className="text-base md:text-3xl font-semibold font-play">What's our mission and values of the company?</h2>
+            <p className="text-base lg:text-xl text-gray-500"> In React One-way data binding means that data flows in a single direction: from a parent component to its children. This flow ensures that changes in the parent can affect its children, but not the other way around. Children components receive data from parents (via props), but they can't directly change that data. If a child needs to change something, it communicates with the parent by using callback functions passed as props. This setup maintains a clear and predictable flow of data, making the application easier to manage and less prone to bugs caused by conflicting data changes.</p>
+            <div className="flex items-center justify-between">
+            <button type="submit" className= "rounded-md py-1 md:py-2 outline-none border font-play border-gray-500 text-gray-500 px-10 hover:bg-gray-300/20"> Read More </button>
+            <time> November, 7 2023</time>
+            </div>
+        </div>
+
 
         <TeamSection/>
         </Container>

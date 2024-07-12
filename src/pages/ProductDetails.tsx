@@ -17,6 +17,7 @@ import { TProduct } from "../components/ui/Modal/CreateProductModal"
 import Rating from "react-rating"
 import { useAppDispatch } from "../redux/hooks"
 import { addProductToCart, TCartItem } from "../redux/features/cart/cartSlice"
+import { toast } from "sonner"
 
 
 export default function ProductDetails() {
@@ -49,6 +50,7 @@ export default function ProductDetails() {
 
         }
         dispatch(addProductToCart(productData))
+        toast.success('Product is added in the cart')
      }
 
 

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import TeamCard from "./TeamCard";
 
-
 const teams = [
     {
         userName : 'Imtiaz Sarkar Shimul',
@@ -45,7 +44,7 @@ const TeamSection = () => {
     const [ teamData, setTeamData ] = useState(teams)
 
     return (
-            <div className="my-20 lg:my-28 xl:my-36">
+            <div className="my-28 xl:my-36">
  
  <h1 className="text-[26px] md:text-3xl lg:text-[40px] text-gray-700 text-center " >Our Team Members </h1>
  <p className="text-center text-sm md:text-lg max-w-[1040px] mx-auto text-gray-600 mt-0 md:mt-2 mb-10 md:mb-16 lg:mb-20 font-play" >Experience the extraordinary with our range of signature products.  promising an unforgettable dining experience.</p>

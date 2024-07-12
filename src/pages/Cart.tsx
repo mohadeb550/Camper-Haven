@@ -154,8 +154,8 @@ export default function Cart() {
 </div>
 </div>
 
-<Link to={'/checkout'}>
-<button className="bg-gray-700 rounded-md py-3 px-8 my-4 text-white font-semibold transition-all hover:bg-[#471276] text-sm md:text-lg">Place Order</button></Link>
+<Link to={'/checkout'} state={{ cartItems, total}} >
+<button className="bg-gray-700 rounded-md py-3 px-8 my-4 text-white font-semibold transition-all hover:bg-red-500 text-sm md:text-lg">Place Order</button></Link>
 </section>
  </Container>
   )
