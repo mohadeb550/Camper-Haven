@@ -1,10 +1,11 @@
 
 
-import {  Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { IoMdAdd }  from 'react-icons/io'
 import { AiOutlineMinus }  from 'react-icons/ai'
 import { BsCart2, BsFacebook, BsLinkedin, BsStar, BsStarFill, BsTwitter }  from 'react-icons/bs'
 import { GiSelfLove }  from 'react-icons/gi'
+import ReactImageMagnify from 'react-image-magnify';
 
 import ImageGallery from "react-image-gallery";
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -19,6 +20,26 @@ import { useAppDispatch } from "../redux/hooks"
 import { addProductToCart, TCartItem } from "../redux/features/cart/cartSlice"
 import { toast } from "sonner"
 
+
+const renderItem = (item) => {
+    return (
+      <ReactImageMagnify
+        {...{
+            smallImage: {
+                alt: 'Gallery Image',
+                isFluidWidth: true,
+                src: item.original,
+              },
+              largeImage: {
+                src: item.original,
+                width: 1200,
+                height: 1800,
+              },
+        }}
+      />
+    );
+  };
+  
 
 export default function ProductDetails() {
     const params = useParams();
@@ -59,8 +80,11 @@ export default function ProductDetails() {
        
        <div className="flex flex-col md:flex-row justify-around gap-4 md:gap-12 lg:gap-20">
 
-       <div className=" bg-gray-100 p-6 custom-image-gallery flex-1">
-       <ImageGallery items={images.map(image => ({ original: image, thumbnail: image}))} showNav={false} showPlayButton={false} showFullscreenButton={false} />
+       <div className=" bg-gray-100 p-6 custom-image-gallery flex-1 ">
+        
+       <ImageGallery items={images.map(image => ({ original: image, thumbnail: image}))}
+       renderItem={renderItem}
+        showNav={false} showPlayButton={false} showFullscreenButton={false} />
         </div>
 
         <div className="flex flex-col gap-5 flex-1">

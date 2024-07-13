@@ -55,7 +55,7 @@ const TestomonialSection = () => {
     return (
        <Container>
 
-            <section id="testimonial-section"  className=" mb-24 md:mb-32 lg:mb-44 xl:mb-80">
+            <section id="testimonial-section"  className=" mb-16 md:mb-24 lg:mb-32 xl:mb-40">
 
             <h4 className={`text-center text-lg md:text-lg lg:text-xl xl:text-2xl text-black mb-2 lg:mb-4`}>Testimonial</h4>
             <h1 className="text-[26px] md:text-3xl lg:text-[40px] text-gray-700 text-center " >What Our Customer Say</h1>

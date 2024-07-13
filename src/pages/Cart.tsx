@@ -15,6 +15,24 @@ export default function Cart() {
   const [ total , setTotal ] = useState(0);
 
 
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      event.preventDefault();
+      // Modern browsers require setting returnValue for the event
+      event.returnValue = 'Are you sure you want to leave?';
+    };
+
+   if(cartItems.length){
+    window.addEventListener('beforeunload', handleBeforeUnload);
+   }
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+
+
     useEffect(()=> {
       const totalPrice = cartItems?.reduce((prevValue, currentValue: TCartItem) => prevValue + (currentValue.quantity * currentValue.price), 0);
       setTotal(totalPrice);
