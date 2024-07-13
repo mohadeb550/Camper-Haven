@@ -2,13 +2,11 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { FaStar } from "react-icons/fa";
-import { FaRegStar } from "react-icons/fa";
 import { BsArrowLeft } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
 import { useRef } from 'react';
 import { TReviews } from './TestomonialSection';
-import { Rating } from 'react-simple-star-rating';
+
 
 
 

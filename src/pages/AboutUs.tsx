@@ -75,7 +75,7 @@ const AboutUs = () => {
 
 
         <div className="flex justify-center mt-24">
-            <img src="/src/assets/images/360_F_302219229_jJgc49qbWyz9As6BjuPgG9SZwTJLYWe8-Photoroom.png" />
+            <img src="/360_F_302219229_jJgc49qbWyz9As6BjuPgG9SZwTJLYWe8-Photoroom.png" />
         </div>
         
         <div className="flex flex-col gap-6">

@@ -23,7 +23,7 @@ export default function Banner() {
 </div>
 
 <div className="flex-1 h-full w-full pt-2 xl:pt-4">
-    <img src="/src/assets/images/120897-Photoroom.png" className=" h-[300px] md:h-full w-full object-contain" />
+    <img src="/120897-Photoroom.png" className=" h-[300px] md:h-full w-full object-contain" />
 </div>
 
 

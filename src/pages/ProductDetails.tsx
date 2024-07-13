@@ -3,7 +3,7 @@
 import { useParams } from "react-router-dom"
 import { IoMdAdd }  from 'react-icons/io'
 import { AiOutlineMinus }  from 'react-icons/ai'
-import { BsCart2, BsFacebook, BsLinkedin, BsStar, BsStarFill, BsTwitter }  from 'react-icons/bs'
+import { BsCart2, BsFacebook, BsLinkedin, BsTwitter }  from 'react-icons/bs'
 import { GiSelfLove }  from 'react-icons/gi'
 
 
@@ -15,7 +15,6 @@ import { ClipLoader } from "react-spinners"
 
 import { useGetSingleProductQuery } from "../redux/features/product/productApi"
 import { TProduct } from "../components/ui/Modal/CreateProductModal"
-import { Rating } from 'react-simple-star-rating'
 import { useAppDispatch } from "../redux/hooks"
 import { addProductToCart, TCartItem } from "../redux/features/cart/cartSlice"
 import { toast } from "sonner"

@@ -5,37 +5,37 @@ const teams = [
     {
         userName : 'Imtiaz Sarkar Shimul',
         position : 'Senior Advisor',
-        image : '/src/assets/images/Screenshot (712).png',
+        image : '/Screenshot (712).png',
         id:1
     },
     {
         userName : 'Khan Mohammad Iqra',
         position : 'Site Manager',
-        image : '/src/assets/images/52e58987bcc42c63c37abd7a5ab35575.jpg',
+        image : '/52e58987bcc42c63c37abd7a5ab35575.jpg',
         id:2
     },
     {
         userName : 'Shamim Ahmed',
         position : 'Senior Designer',
-        image : '/src/assets/images/7152f0516abb4f83bc37d1b03e5dd237.jpg',
+        image : '/7152f0516abb4f83bc37d1b03e5dd237.jpg',
         id:3
     },
     {
         userName : 'Sogir Sikder',
         position : 'Senior Advisor',
-        image : '/src/assets/images/Screenshot (711).png',
+        image : '/Screenshot (711).png',
         id:4
     },
     {
         userName : 'Tanim Pramanik',
         position : 'Site Manager',
-        image : '/src/assets/images/Screenshot (710).png',
+        image : '/Screenshot (710).png',
         id:5
     },
     {
         userName : 'Maksudur Rahman',
         position : '3D Visual Designer',
-        image : '/src/assets/images/a7a12ce815dca51a03017beda3103ba1.jpg',
+        image : '/a7a12ce815dca51a03017beda3103ba1.jpg',
         id:6
     },
 ]

@@ -15,7 +15,7 @@ const FaqSection = () => {
 <div className="md:h-[350px] lg:h-[400px] xl:h-[540px] flex flex-col md:flex-row-reverse items-center justify-between gap-2 md:gap-5 lg:gap-7">
 
     <div className="w-full md:w-[55%] xl:w-[40%] h-full">
-        <img src="/src/assets/images/depositphotos_77762298-stock-illustration-illustration-of-isolated-camp-fire.jpg" className="opacity-90 rounded-xl h-full w-full object-cover object-center" />
+        <img src="/depositphotos_77762298-stock-illustration-illustration-of-isolated-camp-fire.jpg" className="opacity-90 rounded-xl h-full w-full object-cover object-center" />
     </div>
     <AccordianBox/>
 </div>

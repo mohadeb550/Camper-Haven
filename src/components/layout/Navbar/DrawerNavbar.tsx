@@ -38,7 +38,7 @@ const DrawerNav = () => {
 
       <div className="flex items-center gap-2 mt-2 mb-6">
       <div className="flex items-center gap-1" >
-<img src='/src/assets/images/pngwing.com (48).png' className="w-8 md:w-9"/>
+<img src='/pngwing.com (48).png' className="w-8 md:w-9"/>
 <h2 className={`text-base font-semibold  md:text-lg whitespace-nowrap `}>CAMPER HAVEN </h2>
 </div>
     </div>

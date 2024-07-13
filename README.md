@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PROJECT NAME : Camper Haven
+LIVE SERVER  : https://campers-shop-six.vercel.app
 
-Currently, two official plugins are available:
+This is a camping products site where users can get necessary all the products for camping.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+What users can do (as of now) : 
+-  user can create a product, update, delete from the Product Management page.
+-  user can see the products by filtering price, category and get specific products by searching
+-  user can view the full details of the products clicking SEE DETAILS button.
+-  user can add a product to the cart from Product Details page.
+-  user can place a order for all the products in the cart.
+-  user needs to give their information for placing a new order from the Checkout page.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Features : 
+- RTK Query has been used.
+- Pixel Perfect Responsive has been done.
+- Error handing has been done.
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+How to run the project locally?
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Install all the dependencies by this command 'npm install'.
+- Replace the 'baseApi' in 'baseApi.ts' file by the backend URL.
+- You will need the backend server and you can get it from my repository named "camper-haven-backend"
+- To build the project use this "npm run build"
+
+The technologies and packages used in this project :  
+
+- HTML and Tailwind CSS
+- React and Redux Toolkit
+- Typescript
+- Daisy UI as Css framework
+- react-slick and @szhsin/react-accordion
+- react-hook-form , react-router-dom
+- react-image-gallery , react-icons

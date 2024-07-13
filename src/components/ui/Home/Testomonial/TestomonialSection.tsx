@@ -16,7 +16,7 @@ export type TReviews = {
 const reviews = [
     {
       id:1,
-      user_img: '/src/assets/images/896.jpg',
+      user_img: '/896.jpg',
       user_name: 'Caroline Willy',
       user_position : 'Senior Architecture',
       description :'I particularly appreciated the personalized approach of their agents, who took the time to understand my specific needs and preferences and worked tirelessly to find properties that met those requirements.',
@@ -24,7 +24,7 @@ const reviews = [
     },
     {
       id:2,
-      user_img: '/src/assets/images/handsome-bearded-guy-posing-against-white-wall.jpg',
+      user_img: '/handsome-bearded-guy-posing-against-white-wall.jpg',
       user_name: 'Imtiaz Sarkar Shimul',
       user_position : 'Senior Architecture',
       description :'I particularly appreciated the personalized approach of their agents, who took the time to understand my specific needs and preferences and worked tirelessly to find properties that met those requirements.',
@@ -32,7 +32,7 @@ const reviews = [
     },
     {
       id:3,
-      user_img: '/src/assets/images/portrait-successful-man-having-stubble-posing-with-broad-smile-keeping-arms-folded.jpg',
+      user_img: '/portrait-successful-man-having-stubble-posing-with-broad-smile-keeping-arms-folded.jpg',
       user_name: 'Sawyer James',
       user_position : 'Senior Architecture',
       description :'I particularly appreciated the personalized approach of their agents, who took the time to understand my specific needs and preferences and worked tirelessly to find properties that met those requirements.',
@@ -40,7 +40,7 @@ const reviews = [
     },
     {
       id:4,
-      user_img: '/src/assets/images/romantic-bearded-man-showing-heart-sign-express-love_176420-18653.jpg',
+      user_img: '/romantic-bearded-man-showing-heart-sign-express-love_176420-18653.jpg',
       user_name: 'Harly Carlos',
       user_position : 'Senior Architecture',
       description :'I particularly appreciated the personalized approach of their agents, who took the time to understand my specific needs and preferences and worked tirelessly to find properties that met those requirements.',
