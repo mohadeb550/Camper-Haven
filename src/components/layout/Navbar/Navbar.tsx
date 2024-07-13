@@ -1,11 +1,11 @@
 import Headroom from "react-headroom"
 import DrawerNav from "./DrawerNavbar"
 import { HiOutlineMenu } from "react-icons/hi";
-import Container from "../Container";
 import { Link, NavLink } from "react-router-dom";
 import { LuShoppingCart } from "react-icons/lu";
 import { FiHeart } from "react-icons/fi";
 import { useAppSelector } from "../../../redux/hooks";
+import Container from "../Container";
 
 
 export default function Navbar() {
@@ -40,8 +40,8 @@ export default function Navbar() {
 
 {/* logo section  */}
 <div className="flex items-center gap-1" >
-<img src='/src/assets/images/pngegg (15).png' className="w-9 md:w-12 lg:w-16"/>
-<h2 className={`text-[18px] font-semibold  md:text-xl lg:text-[22px] xl:text-2xl whitespace-nowrap `}>CAMPER HAVEN </h2>
+<img src='/src/assets/images/pngwing.com (48).png' className="w-9 md:w-12 lg:w-16 opacity-90"/>
+<h2 className={`text-[18px] text-gray-800 font-bold  md:text-xl lg:text-[22px] xl:text-2xl whitespace-nowrap `}>CAMPER HAVEN </h2>
 </div>
 
 

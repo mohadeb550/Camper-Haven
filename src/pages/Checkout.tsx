@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useForm } from 'react-hook-form';
 import Container from '../components/layout/Container';
@@ -10,13 +11,13 @@ import { toast } from 'sonner';
 
 const Checkout = () => {
     const { register, handleSubmit } = useForm();
-    const [ createProduct , { isLoading , data }] = useCreateOrderMutation();
+    const [ createProduct , { isLoading }] = useCreateOrderMutation();
     const location = useLocation();
     const navigate = useNavigate();
 
 
-    const onSubmit = async (data) => {
-        // extracting id and quantity 
+    const onSubmit = async (data : any) => {
+        // extracting id and quant ity 
         const orderedProducts = location.state?.cartItems.map((product: TProduct) => 
             ({ productId : product._id, quantity : product.quantity}))
 

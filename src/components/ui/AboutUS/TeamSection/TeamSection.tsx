@@ -41,7 +41,7 @@ const teams = [
 ]
 
 const TeamSection = () => {
-    const [ teamData, setTeamData ] = useState(teams)
+    const [ teamData ] = useState(teams)
 
     return (
             <div className="my-28 xl:my-36">

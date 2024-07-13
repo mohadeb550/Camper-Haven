@@ -4,7 +4,7 @@ import SliderBox from "./SliderBox";
 
 
 export type TReviews = {
-  id : string;
+  id : number;
   user_img : string;
   user_name : string;
   user_position : string;

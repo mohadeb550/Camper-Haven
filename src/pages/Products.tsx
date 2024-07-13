@@ -4,6 +4,8 @@ import SearchBanner from "../components/ui/ProductsPage/SearchBanner";
 import { useGetProductsQuery } from "../redux/features/product/productApi";
 import { ClipLoader } from "react-spinners";
 import ProductCard from "../components/ui/ProductsPage/ProductCard";
+import Container from "../components/layout/Container";
+import { TProduct } from "../components/ui/Modal/CreateProductModal";
 
 
 
@@ -11,15 +13,15 @@ export default function Products() {
 
   const [ filterQuery, setFilterQuery ] = useState({})
     const { data , isFetching } = useGetProductsQuery(filterQuery);
-    const products = data?.data || [];
+    const products : TProduct[] = data?.data || [];
 
     const resetFilterQuery = () => {
       setFilterQuery({})  
     }
   return (
     
-
-    <section className="my-2 md:my-6 lg:my-8 lg:px-0 max-w-[1300px] mx-auto px-5" >
+<Container>
+     <section className="my-2 md:my-6 lg:my-8 " >
     
           <SearchBanner setFilterQuery={setFilterQuery} />
       
@@ -78,7 +80,7 @@ export default function Products() {
           </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 justify-items-center gap-7  mb-8 md:mb-16 xl:mt-20">
-            {products?.map(product => <ProductCard  product={product} /> )}
+            {products?.map(product => <ProductCard key={product._id} product={product} /> )}
         </div> 
 
           {/* no products direction  */}
@@ -87,5 +89,7 @@ export default function Products() {
         </section>
           
     </section>
+</Container>
+ 
   )
 }

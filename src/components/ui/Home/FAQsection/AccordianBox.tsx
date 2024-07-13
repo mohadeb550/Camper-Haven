@@ -3,7 +3,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 //  customize accordian :
 
-const AccordionItem = ({ header, ...rest }) => {
+const AccordionItem = ({ header, ...rest } : { header : string, initialEntered? : boolean, children : string}) => {
 
   return <Item   {...rest} header={({ state: { isEnter } }) => (
       <>
@@ -15,7 +15,7 @@ const AccordionItem = ({ header, ...rest }) => {
       </>
     )}
     // accrodian item style 
-    className="border-b border-gray-400"  buttonProps={{ className: ({ isEnter }) =>  `flex w-full py-3 md:py-2 lg:py-3 xl:py-6 text-left hover:bg-gray-50/60 ${ isEnter? "text-red-500" : 'text-black/80'    }`
+    className="border-b border-gray-400"  buttonProps={{ className: ({ isEnter }) =>  `flex w-full py-3 md:py-2 lg:py-3 xl:py-6 text-left hover:bg-gray-50/60 ${ isEnter? "text-red-400" : 'text-black/80'    }`
     }} 
       // inside content style 
     contentProps={{ className: `text-sm lg:text-base xl:text-lg text-primary-gray transition-height duration-200 ease-out` }}  panelProps={{ className: "pb-2 lg:pb-3" }}

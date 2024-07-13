@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {useForm } from "react-hook-form";
 import { useGetSingleProductQuery, useUpdateProductMutation } from "../../../redux/features/product/productApi";
@@ -40,7 +41,7 @@ export default function UpdateProductModal({ open, setOpen, productId} : TModalP
     }, [reset, product, isSuccess]);
 
 
-  const onSubmit = async (data ) => {
+  const onSubmit = async (data: any) => {
     
   const productData : TProduct = {
     product_name : data.productName,

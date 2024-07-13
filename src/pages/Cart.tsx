@@ -16,7 +16,7 @@ export default function Cart() {
 
 
   useEffect(() => {
-    const handleBeforeUnload = (event) => {
+    const handleBeforeUnload = (event : BeforeUnloadEvent) => {
       event.preventDefault();
       // Modern browsers require setting returnValue for the event
       event.returnValue = 'Are you sure you want to leave?';

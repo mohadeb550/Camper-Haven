@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="space-y-5 col-span-12 md:col-span-4 lg:col-span-5 xl:col-span-3">
            {/* logo section  */}
     <div className="flex items-center gap-1" >
-    <img src='/src/assets/images/pngegg (15).png' className="w-9 md:w-12 lg:w-14"/>
+    <img src='/src/assets/images/pngwing.com (48).png' className="w-9 md:w-12 lg:w-14"/>
     <h2 className={`text-[18px] font-semibold  md:text-xl lg:text-[22px] xl:text-2xl whitespace-nowrap `}>CAMPER HAVEN </h2>
     </div>
             <p className="text-gray-700 ">Camper Haven Dhaka (Main branch)<br/> 90/1 Motijheel City Centre Level 25-B-1,<br/> Lift 26 Dhaka 1000, Bangladesh</p>

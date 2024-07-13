@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {useForm } from "react-hook-form";
 import { useCreateProductMutation } from "../../../redux/features/product/productApi";
@@ -33,7 +34,7 @@ export default function CreateProductModal({ open, setOpen} : TModalProps) {
 
   // console.log(res)
 
-  const onSubmit = async (data ) => {
+  const onSubmit = async (data: any ) => {
     
   const productData : TProduct = {
     product_name : data.productName,

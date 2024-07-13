@@ -20,7 +20,7 @@ const AboutUs = () => {
                 <div className="w-full h-[500px] lg:w-[40%] bg-cover flex flex-col items-start mt-2">
 
                 <div className="w-full h-full">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116399.90657227112!2d89.79155163654143!3d24.259362611903022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fdfb44c7eeadc1%3A0x635d437a356cefa!2sTangail%20Sadar%20Upazila!5e0!3m2!1sen!2sbd!4v1720767292885!5m2!1sen!2sbd"  className="rounded w-full h-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116399.90657227112!2d89.79155163654143!3d24.259362611903022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fdfb44c7eeadc1%3A0x635d437a356cefa!2sTangail%20Sadar%20Upazila!5e0!3m2!1sen!2sbd!4v1720767292885!5m2!1sen!2sbd"  className="rounded w-full h-full" loading="lazy" ></iframe>
                 </div>
 
                     <div className="p-4 space-y-3">
